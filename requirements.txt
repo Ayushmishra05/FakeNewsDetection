@@ -1,0 +1,8 @@
+numpy 
+pandas 
+scikit-learn
+ensure
+evidently 
+gensim
+python-box
+ensure 
