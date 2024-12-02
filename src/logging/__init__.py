@@ -6,7 +6,8 @@ from logging import StreamHandler , FileHandler
 
 direc = 'logs'
 
-filename = f"{direc}/{datetime.now().strftime("%H_%M_%d_%m_%Y")}.log"
+filename = f"{direc}/{datetime.now().strftime('%H_%M_%d_%m_%Y')}.log"
+
 
 os.makedirs(direc, exist_ok=True)
 with open(filename , 'w') as fp:
