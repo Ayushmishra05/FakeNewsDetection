@@ -4,7 +4,8 @@ from src.constants import (DATA_INGESTION_DIR , DATA_INGESTION_DATA_PATH, TRUE_D
                            FALSE_DATA_PATH, VALIDATION_ROOT_DATA, VALID_ROOT, VALID_DATA, VALID_REPORT, 
                            INVALID_DATA, INVALID_REPORT, INVALID_ROOT, REFERENCE_DATA_PATH, TRANSFORMATION_ROOT_DIR, TRANSFORMATION_TEST_DIR
                            , TRANSFORMATION_TEST_DIR, TRANSFORMATION_TEST_PATH, TRANSFORMATION_TRAIN_DIR, TRANSFORMATION_TRAIN_PATH, 
-                           MODEL_ROOT_DIR, MODEL_PATH , MODEL_REPORT_PATH, MLFLOW_EXP_NAME)
+                           MODEL_ROOT_DIR, MODEL_PATH , MODEL_REPORT_PATH, MLFLOW_EXP_NAME, EVALUATION_ROOT_DIR, MODEL_METRICS_PATH, 
+                           MODEL_ROOT , MODEL_NAME)
 import os 
 
 
@@ -45,6 +46,8 @@ class TransformationPipelineConfig:
         self.test_dir = os.path.join(self.root_dir , TRANSFORMATION_TEST_DIR)
         self.train_path = os.path.join(self.train_dir , TRANSFORMATION_TRAIN_PATH)
         self.test_path = os.path.join(self.test_dir , TRANSFORMATION_TEST_PATH)
+        self.gensim_model = os.path.join(self.root_dir, MODEL_ROOT)
+        self.gensim_model_path = os.path.join(self.gensim_model, MODEL_NAME)
 
 class ModelTrainingPipelineConfig:
     def __init__(self, training_pipeline : TrainingPipelineConfig):
@@ -56,7 +59,10 @@ class ModelTrainingPipelineConfig:
 
 class ModelEvaluationPipelineConfig:
     def __init__(self, training_pipeline : TrainingPipelineConfig):
-        self.root_dir = os.path.join(training_pipeline.foldername, )
+        self.root_dir = os.path.join(training_pipeline.foldername, EVALUATION_ROOT_DIR)
+        self.metrics_file_path = os.path.join(self.root_dir , MODEL_METRICS_PATH)
+        self.exp_name = MLFLOW_EXP_NAME
+
 
 
         

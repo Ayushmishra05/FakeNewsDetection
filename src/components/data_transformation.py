@@ -65,6 +65,8 @@ class DataTransformation:
             model.train(story, total_examples = model.corpus_count, epochs = model.epochs)
             data['text'] = data['text'].apply(lambda x : self.get_sentence_embedding(x , model).tolist())
             logger.info("Tokenization and Data Modification Completed")
+            os.makedirs(self.config.gensim_model, exist_ok = True)
+            model.save(self.config.gensim_model_path)
             return data
         except Exception as e:
             raise e

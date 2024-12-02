@@ -21,7 +21,7 @@ class DataIngestion:
             self.true_data['reality'] = 1 
             self.false_data = DataIngestion.get_data(self.config.false_data_path)
             logger.info("Data Extracted")
-            self.false_data['reality'] = 1
+            self.false_data['reality'] = 0
             self.merged_data = self.merge_data(self.true_data, self.false_data)
             logger.info("Data Merged")
             os.makedirs(self.config.data_ingestion_dir , exist_ok=True)

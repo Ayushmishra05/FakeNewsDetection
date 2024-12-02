@@ -21,4 +21,7 @@ MODEL_REPORT_PATH = "params.json"
 MLFLOW_EXP_NAME = "Fake_News_Detector"
 EVALUATION_ROOT_DIR = "Model Evaluation"
 MODEL_METRICS_PATH = "metrics.json"
-
+MODEL_ROOT = "model"
+MODEL_NAME = "vectorized.model"
+VECTORIZED_PATH = "models/vectorized.model"
+PREDICTION_PATH = "models/model.pkl"
